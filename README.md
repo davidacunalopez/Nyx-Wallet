@@ -1,85 +1,61 @@
-# Nyx Wallet
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1cbfe0cc-4c25-488e-94d4-786666b2738d" alt="Galaxy Smart Wallet Logo" width="380">
+</p>
 
-A modern cryptocurrency wallet application built with Next.js, TypeScript, and Tailwind CSS.
+**Galaxy Smart Wallet** is a decentralized wallet built on **Stellar**, designed for secure and on-chain asset management. Developed with **Next.js, TailwindCSS, and Zustand**, it provides a seamless and user-friendly interface for interacting with the Stellar blockchain.
 
-## Features
+## 🚀 Technologies Used
 
-- 🚀 Modern React 18 with Next.js 14
-- 💎 TypeScript for type safety
-- 🎨 Tailwind CSS for styling
-- 📱 Responsive design
-- 🔗 Wallet connection functionality
-- 💰 Balance display
-- 📊 Transaction history
-- 🎯 Clean and intuitive UI
+- [Next.js](https://nextjs.org) - A powerful React framework for modern web apps.
+- [TailwindCSS](https://tailwindcss.com) - A utility-first CSS framework for styling.
+- [Zustand](https://github.com/pmndrs/zustand) - A lightweight state management library.
+- [Framer Motion](https://www.framer.com/motion/) - Smooth and optimized animations.
+- [Stellar SDK](https://github.com/stellar/js-stellar-sdk) - Stellar blockchain integration.
 
-## Getting Started
+---
 
-First, install the dependencies:
+## 🛠 Installation & Setup
 
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Galaxy-KJ/galaxy-smart-wallet.git
+cd galaxy-smart-wallet
+```
+
+### 2️⃣ Install Dependencies
 ```bash
 npm install
-# or
+# or using yarn
 yarn install
-# or
+# or using pnpm
 pnpm install
 ```
 
-Then, run the development server:
+### 3️⃣ Set Up Environment Variables
+Create a **`.env.local`** file in the root directory with:
+```
+NEXT_PUBLIC_ENCRYPTION_KEY=your_secret_key
+```
 
+### 4️⃣ Start the Development Server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application in action.
 
-## Project Structure
+---
 
-```
-├── app/                    # Next.js 13+ app directory
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Home page
-├── components/            # Reusable React components
-│   ├── Header.tsx
-│   ├── WalletCard.tsx
-│   └── TransactionHistory.tsx
-├── lib/                   # Utility libraries
-├── public/                # Static assets
-├── types/                 # TypeScript type definitions
-├── hooks/                 # Custom React hooks
-├── context/               # React context providers
-├── utils/                 # Utility functions
-└── middleware/            # Next.js middleware
-```
+## 📖 Additional Resources
 
-## Available Scripts
+- [Next.js Docs](https://nextjs.org/docs) - Learn more about Next.js.
+- [Stellar Docs](https://developers.stellar.org/docs) - Stellar documentation.
+- [TailwindCSS Docs](https://tailwindcss.com/docs) - TailwindCSS guide.
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript type checking
+---
 
-## Technologies Used
+## 🤝 Contributing
 
-- **Next.js 14** - React framework with App Router
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
-- **React 18** - Latest React features
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License.
+We appreciate all contributions to improve **Galaxy Smart Wallet**! Before you start, please check our **[Contribution Guidelines](docs/CONTRIBUTORS_GUIDELINE.md)** to follow best practices for branching, commits, and collaboration.
