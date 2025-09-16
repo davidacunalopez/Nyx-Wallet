@@ -2,9 +2,12 @@
 // The config you add here will be used whenever a users loads a page in their browser.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import * as Sentry from "@sentry/nextjs";
-
-Sentry.init({
+// Only initialize Sentry if the module is available and DSN is provided
+if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_SENTRY_DSN) {
+  try {
+    const Sentry = require("@sentry/nextjs");
+    
+    Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
   // Adjust this value in production, or use tracesSampler for greater control
@@ -93,4 +96,8 @@ Sentry.init({
 
   // Respect user privacy settings
   enabled: process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === 'true',
-});
+    });
+  } catch (error) {
+    console.warn('Sentry initialization failed:', error);
+  }
+}
