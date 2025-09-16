@@ -62,7 +62,8 @@ export function WelcomeScreen() {
   }
 
   const handleInvisibleWalletClick = () => {
-    setIsInvisibleLoginModalOpen(true)
+    // Navigate directly to the invisible wallet page
+    router.push("/invisible-wallet")
   }
 
   const handleGetStarted = async () => {
