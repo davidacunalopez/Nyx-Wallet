@@ -115,14 +115,12 @@ export function InvisibleWalletDemo() {
       });
       console.log('Wallet recovered:', result);
       
-      // Store the recovered wallet info to use for sending
-      if (result && result.publicKey && result.secretKey) {
-        setCreatedWallet({
-          publicKey: result.publicKey,
-          secretKey: result.secretKey,
-          walletResponse: result
-        });
-      }
+      // Note: recoverWallet doesn't return secretKey for security reasons
+      // To send money, user needs to create a new wallet or use existing one
+      toast({
+        title: "Wallet Recovered",
+        description: `Wallet found: ${result.publicKey}. To send money, please create a new wallet or use the existing one.`,
+      });
     } catch (error) {
       console.error('Failed to recover wallet:', error);
     }
