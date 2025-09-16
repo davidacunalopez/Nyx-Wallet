@@ -17,7 +17,7 @@ if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   debug: process.env.NODE_ENV === 'development',
 
   // Privacy-focused configuration
-  beforeSend(event, hint) {
+  beforeSend(event: any, hint: any) {
     // Sanitize sensitive data before sending to Sentry
     if (event.request && event.request.headers) {
       // Remove sensitive headers
@@ -58,7 +58,7 @@ if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
     return event;
   },
 
-  beforeBreadcrumb(breadcrumb) {
+  beforeBreadcrumb(breadcrumb: any) {
     // Sanitize breadcrumb data
     if (breadcrumb.data) {
       // Filter out sensitive keys
