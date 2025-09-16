@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+
 interface Transaction {
   id: string
   type: 'send' | 'receive'
