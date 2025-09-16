@@ -8,10 +8,11 @@ import { useClientTranslation } from "@/contexts/language-provider";
 
 interface HeaderProps {
   onGetStarted: () => void;
+  onInvisibleWallet: () => void;
   isLoading: boolean;
 }
 
-export function Header({ onGetStarted, isLoading }: HeaderProps) {
+export function Header({ onGetStarted, onInvisibleWallet, isLoading }: HeaderProps) {
   const { t } = useClientTranslation();
 
   return (
@@ -38,6 +39,12 @@ export function Header({ onGetStarted, isLoading }: HeaderProps) {
         className="flex items-center gap-4"
       >
         <LanguageToggle />
+        <OutWalletButton
+          onClick={onInvisibleWallet}
+          label="INVISIBLE WALLET"
+          loadingLabel="Loading..."
+          isLoading={isLoading}
+        />
         <OutWalletButton
           onClick={onGetStarted}
           label={t("home.header.getStarted")}

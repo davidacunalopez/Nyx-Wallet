@@ -13,6 +13,7 @@ import { CTASection } from "./cta-section"
 import { Footer } from "./footer"
 import { CreateWalletModal } from "@/components/wallet-creation/create-wallet-modal"
 import { GalaxyLogin } from "@/components/login/galaxy-login"
+import { InvisibleWalletLogin } from "@/components/login/invisible-wallet-login"
 import { useSecureKey } from "@/contexts/secure-key-context"
 import { useWalletStore } from "@/store/wallet-store"
 import { Keypair } from "@stellar/stellar-sdk"
@@ -27,6 +28,7 @@ export function WelcomeScreen() {
 
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+  const [isInvisibleLoginModalOpen, setIsInvisibleLoginModalOpen] = useState(false)
   const [isCreating] = useState(false)
 
   const { setPrivateKey } = useSecureKey()
@@ -49,6 +51,18 @@ export function WelcomeScreen() {
     
     setIsLoginModalOpen(false)
     router.push("/dashboard")
+  }
+
+  const handleInvisibleWalletLogin = (email: string, password: string) => {
+    console.log("Invisible wallet login:", { email, password })
+    // Here you would typically handle the invisible wallet login logic
+    // For now, we'll just close the modal and redirect to dashboard
+    setIsInvisibleLoginModalOpen(false)
+    router.push("/dashboard")
+  }
+
+  const handleInvisibleWalletClick = () => {
+    setIsInvisibleLoginModalOpen(true)
   }
 
   const handleGetStarted = async () => {
@@ -112,7 +126,20 @@ export function WelcomeScreen() {
         </div>
       )}
 
-      <Header onGetStarted={handleGetStarted} isLoading={isCreating} />
+      {isInvisibleLoginModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+          <InvisibleWalletLogin
+            onLoginSuccess={handleInvisibleWalletLogin}
+            onClose={() => setIsInvisibleLoginModalOpen(false)}
+          />
+        </div>
+      )}
+
+      <Header 
+        onGetStarted={handleGetStarted} 
+        onInvisibleWallet={handleInvisibleWalletClick}
+        isLoading={isCreating} 
+      />
 
       <HeroSection
         scrollYProgress={useScroll({ target: containerRef }).scrollYProgress}
